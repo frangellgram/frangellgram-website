@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(247, 246, 246);
+    margin: 0;
+    padding: 0;
+}
+
+.toptext {
+    color: black;
+    font-family: "arial" ; 
+}
+
+.foto-portada {
+    width: 1000px;
+    border-color: black;
+    border: solid;
+    border-width: 0.2px;
+}
+
+.profile-side {
+    width: 500px;
+}
+
+.logo-frangellgram {
+    width: 400px;
+    background-color: lightgray;
+}
+
+.iglogo {
+    width: 26px;
+}
+
+.wslogo {
+    width: 26px;
+}

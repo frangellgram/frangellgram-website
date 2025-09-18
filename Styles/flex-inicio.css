@@ -1,0 +1,45 @@
+.toptext {
+    background-color: rgb(247, 246, 246);
+    height: 82px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", Arial;
+    font-size: 13px;
+}
+
+.inicio {
+    width: 150px;
+    text-align: center;
+    padding-left: 15px;
+}
+
+.portafolio {
+    width: 150px;
+    text-align: center;
+}
+
+.sobremi {
+    width: 150px;
+    text-align: center;
+}
+
+.contacto {
+    width: 150px;
+    text-align: center;
+}
+
+.idioma-boton {
+    width: 150px;
+    text-align: center;
+}
+
+.iglogo {
+    padding-left: 40px;
+}
+
+.wslogo {
+    padding: 10px;
+}
+
