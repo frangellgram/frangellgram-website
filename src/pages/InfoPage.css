@@ -42,7 +42,9 @@
     align-items: center;
     width: 100%;
     max-width: 400px;
+    transition: opacity 0.25s ease;
 }
+
 
 .info-logo {
     height: 44px;
@@ -119,6 +121,14 @@
     z-index: 100;
     padding: 24px;
     box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.info-modal-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .info-modal {

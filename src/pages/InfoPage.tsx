@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'; // useCallback kept for handleComingSoon
 import './InfoPage.css';
 import { translations, type Language } from '../components/translations';
 
@@ -59,17 +59,15 @@ export default function InfoPage() {
 
     return (
         <div className="info-page">
-            {showModal && (
-                <div className="info-modal-overlay" onClick={() => setShowModal(false)}>
-                    <div className="info-modal" onClick={e => e.stopPropagation()}>
-                        <p className="info-modal-title">{modal.title}</p>
-                        <p className="info-modal-body">{modal.body}</p>
-                        <button className="info-modal-close" onClick={() => setShowModal(false)}>
-                            {modal.close}
-                        </button>
-                    </div>
+            <div className={`info-modal-overlay ${showModal ? 'visible' : ''}`} onClick={() => setShowModal(false)}>
+                <div className="info-modal" onClick={e => e.stopPropagation()}>
+                    <p className="info-modal-title">{modal.title}</p>
+                    <p className="info-modal-body">{modal.body}</p>
+                    <button className="info-modal-close" onClick={() => setShowModal(false)}>
+                        {modal.close}
+                    </button>
                 </div>
-            )}
+            </div>
             <div className="info-content">
                 <img src="/signatures/Logotop.png" alt="Frangellgram" className="info-logo" />
                 <h1 className="info-title">FRANGELLGRAM</h1>
