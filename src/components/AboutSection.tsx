@@ -4,7 +4,7 @@ interface AboutSectionProps {
     t?: any; // Dejamos esto listo por si quieres traducir textos luego
 }
 
-export default function AboutSection({ t }: AboutSectionProps) {
+export default function AboutSection({ t: _t }: AboutSectionProps) {
     return (
         <section className="about-section">
             <div className="about-container">
