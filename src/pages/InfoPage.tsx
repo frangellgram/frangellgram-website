@@ -33,10 +33,7 @@ const infoText = {
 };
 
 export default function InfoPage() {
-    const [language, setLanguage] = useState<Language>(() => {
-        const saved = localStorage.getItem('idioma');
-        return (saved === 'en' || saved === 'es') ? saved as Language : 'en';
-    });
+    const [language, setLanguage] = useState<Language>('en');
 
     const [showModal, setShowModal] = useState(false);
 
