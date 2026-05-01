@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import './carousel.css';
 
 const slides = [
-    { id: 1, image: "/carousel/portada1.webp", alt: "Sesión Retrato" },
-    { id: 2, image: "/carousel/portada2.webp", alt: "Boda" }, 
-    { id: 3, image: "/carousel/portada3.webp", alt: "Editorial" },
-    { id: 4, image: "/carousel/portada4.webp", alt: "Paisaje" }
+    { id: 1, image: "/carousel/porta-1.jpg", alt: "Sesión Retrato" },
+    { id: 2, image: "/carousel/porta-2.jpg", alt: "Boda" }, 
+    { id: 3, image: "/carousel/porta-3.jpg", alt: "Editorial" },
+    { id: 4, image: "/carousel/porta-4.jpg", alt: "Paisaje" }
 ];
 
 export default function Carousel() {
@@ -18,36 +19,28 @@ export default function Carousel() {
     }, []);
 
     return (
-        <div style={{ height: '54vh', position: 'relative', overflow: 'hidden', width: '100%' }}>
+        <div className="carousel-container">
             {slides.map((slide, index) => (
                 <div 
                     key={slide.id} 
-                    style={{
-                        position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                        opacity: index === currentIndex ? 1 : 0,
-                        transition: 'opacity 1.5s ease-in-out',
-                        zIndex: 0
-                    }}
+                    className={`carousel-slide ${index === currentIndex ? 'active' : ''}`}
                 >
                     <img 
                         src={slide.image} 
                         alt={slide.alt}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} 
+                        className="carousel-image"
                     />
-                    <div style={{
-                        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                        background: 'rgba(0,0,0,0.6)' 
-                    }}></div>
+                    <div className="carousel-overlay"></div>
                 </div>
             ))}
             <div className="carousel-text-overlay">
                 <h1 className="carousel-title">
-                    FRANGELL VASQUEZ
+                    FRANGELLGRAM
                 </h1>
-                <h2 className="carousel-subtitle">
+                <h2 className="carousel-subtitle-1">
                     Dominican Wedding Photographer
                 </h2>
-                <h2 className="carousel-subtitle">
+                <h2 className="carousel-subtitle-2">
                     Dedicated to capturing the start of forever.
                 </h2>
             </div>
