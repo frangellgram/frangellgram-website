@@ -9,6 +9,7 @@ export default function Home({ t }: HomeProps) {
     return (
         <div className="page-animate">
             <Carousel />
+            <p>PRUEBA</p>
             <AboutSection t={t} />
 
         </div>
