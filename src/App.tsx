@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import './index.css';
 import { translations, type Language } from './components/translations';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home';
+import InfoPage from './pages/InfoPage';
 
 function App() {
+
+    const location = useLocation();
+    const isInfoPage = location.pathname === '/info';
 
     const [menuAbierto, setMenuAbierto] = useState(false);
 
     const [language, setLanguage] = useState<Language>(() => {
         const guardado = localStorage.getItem('idioma');
-        return (guardado === 'en' || guardado === 'es') ? (guardado as Language) : 'es';
+        return (guardado === 'en' || guardado === 'es') ? (guardado as Language) : 'en';
     });
 
     const t = translations[language];
@@ -33,7 +37,7 @@ function App() {
 
     return (
         <div>
-            <div className="topbar">
+            {!isInfoPage && <div className="topbar">
                 <div className="logotop">
                     <a href="/">
                         <img src="/signatures/Logotop.png" alt="Logo" className="logotopimg" />
@@ -80,13 +84,14 @@ function App() {
                         <img src="/signatures/Logotop.png" alt="Logo" className="logotopimg" />
                     </a>
                 </div>
-            </div>
+            </div>}
             <div className="main-content">
                 <Routes>
                     <Route path="/" element={<Home t={t} />} />
                     <Route path="/portfolio" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Portafolio</h1>} />
                     <Route path="/aboutme" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Sobre Mí</h1>} />
                     <Route path="/contacts" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Contacto</h1>} />
+                    <Route path="/info" element={<InfoPage />} />
                 </Routes>
             </div>
         </div>
