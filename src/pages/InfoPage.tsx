@@ -17,18 +17,20 @@ const modalText = {
 
 const infoText = {
     es: {
+        slogan: 'Dedicados a convertir tus mejores\nrecuerdos en obras de arte.',
         subtitle: 'Fotógrafo de Bodas · República Dominicana',
         website: 'Sitio Web',
         portfolio: 'Portafolio',
-        contact: 'Contáctanos',
-        email: 'Contáctanos',
+        contact: 'WhatsApp',
+        email: 'Email',
     },
     en: {
+        slogan: 'Dedicated to converting your\nbest memories into masterpieces.',
         subtitle: 'Wedding Photographer · Dominican Republic',
         website: 'Website',
         portfolio: 'Portfolio',
-        contact: 'Contact Us',
-        email: 'Contact Us',
+        contact: 'WhatsApp',
+        email: 'Email',
     }
 };
 
@@ -67,7 +69,7 @@ export default function InfoPage() {
             </div>
             <div className="info-content">
                 <img src="/signatures/Logotop.png" alt="Frangellgram" className="info-logo" />
-                <h1 className="info-title">FRANGELLGRAM</h1>
+                <p className="info-slogan">{info.slogan}</p>
                 <p className="info-subtitle">{info.subtitle}</p>
 
                 <div className="info-buttons">
