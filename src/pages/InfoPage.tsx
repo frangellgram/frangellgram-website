@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'; // useCallback kept for handleComingSoon soon
+import { useState, useCallback } from 'react'; // useCallback kept for handleComingSoon
 import './InfoPage.css';
 import { translations, type Language } from '../components/translations';
 
