@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
 import { translations, type Language } from './components/translations';
 import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home';
 import InfoPage from './pages/InfoPage';
+import MaintenancePage from './pages/MaintenancePage';
 
 function App() {
 
     const location = useLocation();
     const isInfoPage = location.pathname === '/info';
+
+    const [hasAccess, setHasAccess] = useState(() => {
+        return localStorage.getItem('fg_access') === 'true';
+    });
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        if (params.get('preview') === 'frangellgram') {
+            localStorage.setItem('fg_access', 'true');
+            setHasAccess(true);
+        }
+    }, [location.search]);
 
     const [menuAbierto, setMenuAbierto] = useState(false);
 
@@ -87,10 +100,10 @@ function App() {
             </div>}
             <div className="main-content">
                 <Routes>
-                    <Route path="/" element={<Home t={t} />} />
-                    <Route path="/portfolio" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Portafolio</h1>} />
-                    <Route path="/aboutme" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Sobre Mí</h1>} />
-                    <Route path="/contacts" element={<h1 style={{ paddingTop: '100px', color: 'white' }}>Contacto</h1>} />
+                    <Route path="/" element={hasAccess ? <Home t={t} /> : <MaintenancePage language={language} />} />
+                    <Route path="/portfolio" element={hasAccess ? <h1 style={{ paddingTop: '100px', color: 'white' }}>Portafolio</h1> : <MaintenancePage language={language} />} />
+                    <Route path="/aboutme" element={hasAccess ? <h1 style={{ paddingTop: '100px', color: 'white' }}>Sobre Mí</h1> : <MaintenancePage language={language} />} />
+                    <Route path="/contacts" element={hasAccess ? <h1 style={{ paddingTop: '100px', color: 'white' }}>Contacto</h1> : <MaintenancePage language={language} />} />
                     <Route path="/info" element={<InfoPage />} />
                 </Routes>
             </div>
