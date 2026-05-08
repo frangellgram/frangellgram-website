@@ -37,8 +37,11 @@ const infoText = {
 export default function InfoPage() {
     useEffect(() => {
         const prev = document.body.style.backgroundColor;
+        const prevOverflow = document.body.style.overflow;
         document.body.style.backgroundColor = '#0f0f0f';
         document.documentElement.style.backgroundColor = '#0f0f0f';
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
 
         // Fix height on iOS WKWebView (Instagram in-app browser)
         const setVh = () => {
@@ -59,7 +62,9 @@ export default function InfoPage() {
 
         return () => {
             document.body.style.backgroundColor = prev;
+            document.body.style.overflow = prevOverflow;
             document.documentElement.style.backgroundColor = '';
+            document.documentElement.style.overflow = '';
             document.documentElement.style.removeProperty('--info-vh');
             window.removeEventListener('resize', setVh);
             if (metaTheme) metaTheme.content = prevThemeContent;
