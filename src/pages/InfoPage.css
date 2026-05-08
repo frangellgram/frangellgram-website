@@ -7,6 +7,7 @@
     justify-content: center;
     padding: 40px 24px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .info-lang-toggle {
