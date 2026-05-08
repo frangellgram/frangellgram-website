@@ -50,16 +50,6 @@ export default function InfoPage() {
         setVh();
         window.addEventListener('resize', setVh);
 
-        // Fix browser chrome color (white bar at top)
-        let metaTheme = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-        const prevThemeContent = metaTheme?.content ?? '';
-        if (!metaTheme) {
-            metaTheme = document.createElement('meta');
-            metaTheme.name = 'theme-color';
-            document.head.appendChild(metaTheme);
-        }
-        metaTheme.content = '#0f0f0f';
-
         return () => {
             document.body.style.backgroundColor = prev;
             document.body.style.overflow = prevOverflow;
@@ -67,7 +57,6 @@ export default function InfoPage() {
             document.documentElement.style.overflow = '';
             document.documentElement.style.removeProperty('--info-vh');
             window.removeEventListener('resize', setVh);
-            if (metaTheme) metaTheme.content = prevThemeContent;
         };
     }, []);
 
