@@ -36,27 +36,13 @@ const infoText = {
 
 export default function InfoPage() {
     useEffect(() => {
-        const prev = document.body.style.backgroundColor;
-        const prevOverflow = document.body.style.overflow;
+        const prevBodyBg = document.body.style.backgroundColor;
+        const prevHtmlBg = document.documentElement.style.backgroundColor;
         document.body.style.backgroundColor = '#0f0f0f';
         document.documentElement.style.backgroundColor = '#0f0f0f';
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
-
-        // Fix height on iOS WKWebView (Instagram in-app browser)
-        const setVh = () => {
-            document.documentElement.style.setProperty('--info-vh', `${window.innerHeight}px`);
-        };
-        setVh();
-        window.addEventListener('resize', setVh);
-
         return () => {
-            document.body.style.backgroundColor = prev;
-            document.body.style.overflow = prevOverflow;
-            document.documentElement.style.backgroundColor = '';
-            document.documentElement.style.overflow = '';
-            document.documentElement.style.removeProperty('--info-vh');
-            window.removeEventListener('resize', setVh);
+            document.body.style.backgroundColor = prevBodyBg;
+            document.documentElement.style.backgroundColor = prevHtmlBg;
         };
     }, []);
 

@@ -1,14 +1,12 @@
 .info-page {
-    height: var(--info-vh, 100dvh);
+    position: fixed;
+    inset: 0;
     background-color: #0f0f0f;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     padding: 40px 24px;
     box-sizing: border-box;
-    overflow: hidden;
-    overscroll-behavior: none;
 }
 
 .info-lang-toggle {
