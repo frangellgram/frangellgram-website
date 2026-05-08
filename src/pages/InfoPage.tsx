@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import './InfoPage.css';
 import { translations, type Language } from '../components/translations';
 
@@ -35,16 +35,6 @@ const infoText = {
 };
 
 export default function InfoPage() {
-    useEffect(() => {
-        const prevBodyBg = document.body.style.backgroundColor;
-        const prevHtmlBg = document.documentElement.style.backgroundColor;
-        document.body.style.backgroundColor = '#0f0f0f';
-        document.documentElement.style.backgroundColor = '#0f0f0f';
-        return () => {
-            document.body.style.backgroundColor = prevBodyBg;
-            document.documentElement.style.backgroundColor = prevHtmlBg;
-        };
-    }, []);
 
     const [language, setLanguage] = useState<Language>('en');
 
