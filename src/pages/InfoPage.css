@@ -1,5 +1,6 @@
 .info-page {
     min-height: 100vh;
+    min-height: 100dvh;
     background-color: #0f0f0f;
     display: flex;
     align-items: center;

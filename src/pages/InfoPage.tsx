@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'; // useCallback kept for handleComingSoon
+import { useState, useCallback, useEffect } from 'react';
 import './InfoPage.css';
 import { translations, type Language } from '../components/translations';
 
@@ -35,6 +35,16 @@ const infoText = {
 };
 
 export default function InfoPage() {
+    useEffect(() => {
+        const prev = document.body.style.backgroundColor;
+        document.body.style.backgroundColor = '#0f0f0f';
+        document.documentElement.style.backgroundColor = '#0f0f0f';
+        return () => {
+            document.body.style.backgroundColor = prev;
+            document.documentElement.style.backgroundColor = '';
+        };
+    }, []);
+
     const [language, setLanguage] = useState<Language>('en');
 
     const [showModal, setShowModal] = useState(false);
