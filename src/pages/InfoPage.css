@@ -4,10 +4,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 40px 24px;
     box-sizing: border-box;
     overflow: hidden;
+    overscroll-behavior: none;
 }
 
 .info-lang-toggle {
