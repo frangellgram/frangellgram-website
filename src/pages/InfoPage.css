@@ -54,6 +54,7 @@
     width: 100%;
     max-width: 400px;
     transition: opacity 0.25s ease;
+    transform: translateY(-20px);
 }
 
 
