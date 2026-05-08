@@ -1,6 +1,5 @@
 .info-page {
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: var(--info-vh, 100dvh);
     background-color: #0f0f0f;
     display: flex;
     align-items: center;
@@ -8,6 +7,7 @@
     position: relative;
     padding: 40px 24px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .info-lang-toggle {
